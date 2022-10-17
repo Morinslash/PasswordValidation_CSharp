@@ -4,6 +4,6 @@ public class Validator
 {
     public bool Check(string password)
     {
-        throw new NotImplementedException();
+        return password.Length > 8;
     }
 }
