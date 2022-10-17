@@ -1,4 +1,5 @@
 using PasswordValidatorImplementation;
+using PasswordValidatorImplementation.Policies;
 
 namespace PasswordValidatorTests;
 
@@ -7,9 +8,10 @@ public class PasswordValidatorShould
     [Fact]
     public void ReturnsTrueIfPasswordsMeetsAllBasicRequirements()
     {
+        var minimalLength = 8;
         var passwordPolicies = new List<IPasswordPolicy>()
         {
-            new LengthPolicy(8),
+            new LengthPolicy(minimalLength),
             new UpperCasePolicy(),
             new LowerCasePolicy(),
             new NumberCasePolicy(),

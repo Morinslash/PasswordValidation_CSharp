@@ -1,4 +1,6 @@
-﻿namespace PasswordValidatorImplementation;
+﻿using PasswordValidatorImplementation.Policies;
+
+namespace PasswordValidatorImplementation;
 
 public class Validator
 {
@@ -9,7 +11,6 @@ public class Validator
         _passwordPolicies = passwordPolicies;
     }
 
-    private const int MinimalPasswordLength = 8;
     public bool Check(string password)
     {
         return _passwordPolicies

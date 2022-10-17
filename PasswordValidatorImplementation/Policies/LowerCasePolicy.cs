@@ -1,4 +1,4 @@
-namespace PasswordValidatorImplementation;
+namespace PasswordValidatorImplementation.Policies;
 
 public class LowerCasePolicy : IPasswordPolicy
 {
