@@ -2,8 +2,10 @@
 
 public class Validator
 {
+    private const int MinimalPasswordLength = 8;
+
     public bool Check(string password)
     {
-        return password.Length > 8;
+        return password.Length > MinimalPasswordLength;
     }
 }
