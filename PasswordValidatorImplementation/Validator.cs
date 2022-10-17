@@ -2,14 +2,18 @@
 
 public class Validator
 {
-    private const int MinimalPasswordLength = 8;
+    private readonly List<IPasswordPolicy> _passwordPolicies;
 
+    public Validator(List<IPasswordPolicy> passwordPolicies)
+    {
+        _passwordPolicies = passwordPolicies;
+    }
+
+    private const int MinimalPasswordLength = 8;
     public bool Check(string password)
     {
-        return password.Length > MinimalPasswordLength 
-            && password.Any(char.IsUpper)
-            && password.Any(char.IsLower)
-            && password.Any(char.IsDigit)
-            && password.Any(c => c.Equals('_'));
+        return _passwordPolicies
+            .Select(policy => policy.Validate(password))
+            .All(c => c);
     }
 }
