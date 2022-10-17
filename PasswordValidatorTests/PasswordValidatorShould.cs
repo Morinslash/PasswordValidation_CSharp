@@ -11,4 +11,12 @@ public class PasswordValidatorShould
         var validator = new Validator();
         Assert.True(validator.Check(validPassword));
     }
+
+    [Fact]
+    public void ReturnTrueIfPasswordContainsAtLeastOneCapitalLetter()
+    {
+        var validPassword = "A";
+        var validator = new Validator();
+        Assert.True(validator.Check(validPassword));
+    }
 }

@@ -6,6 +6,7 @@ public class Validator
 
     public bool Check(string password)
     {
-        return password.Length > MinimalPasswordLength;
+        return password.Length > MinimalPasswordLength 
+            || password.Any(char.IsUpper);
     }
 }
