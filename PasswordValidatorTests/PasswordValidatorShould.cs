@@ -6,6 +6,12 @@ namespace PasswordValidatorTests;
 public class PasswordValidatorShould
 {
     [Fact]
+    public void ThrowExceptionIfListOfPoliciesIsEmpty()
+    {
+        Assert.Throws<ArgumentException>(
+            () => new Validator(new List<IPasswordPolicy>()));
+    }
+    [Fact]
     public void ReturnsTrueIfPasswordsMeetsAllBasicRequirements()
     {
         var minimalLength = 8;

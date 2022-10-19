@@ -8,13 +8,14 @@ public class Validator
 
     public Validator(List<IPasswordPolicy> passwordPolicies)
     {
+        if (!passwordPolicies.Any())
+        {
+            throw new ArgumentException("Policies list cannot be empty");
+        }
         _passwordPolicies = passwordPolicies;
     }
 
-    public bool Check(string password)
-    {
-        return _passwordPolicies
-            .Select(policy => policy.Validate(password))
-            .All(c => c);
-    }
+    public bool Check(string password) =>
+        _passwordPolicies
+            .All(p => p.Validate(password));
 }
