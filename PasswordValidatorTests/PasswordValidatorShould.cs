@@ -6,7 +6,7 @@ namespace PasswordValidatorTests;
 
 public class PasswordValidatorShould
 {
-    private List<IPasswordPolicy> _passwordPolicies;
+    private readonly List<IPasswordPolicy> _passwordPolicies;
     private readonly string _validPassword = "Any_Password";
 
     public PasswordValidatorShould()
